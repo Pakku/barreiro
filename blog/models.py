@@ -16,8 +16,9 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     content = models.TextField()
-    image = FilerImageField(related_name='blog_images', null=True, on_delete=models.SET_NULL)
-    summary = models.CharField(max_length=500, null=True)
+    image = FilerImageField(related_name='blog_images', null=True, on_delete=models.SET_NULL, blank=True)
+    summary = models.CharField(max_length=500, null=True, blank=True)
+    category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL, blank=True, related_name='blog_posts')
 
     class Meta:
         ordering = ['-created_at']
@@ -44,3 +45,26 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural='categories'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse('category', kwargs={"slug": str(self.slug)})
+
+    def get_self_and_children_ids(self):
+        ids = [self.id]
+        for category in self.children.all():
+            ids = ids + category.get_self_and_children_ids()
+        return ids;
