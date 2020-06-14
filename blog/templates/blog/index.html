@@ -45,7 +45,7 @@
                     {% if post.summary %}
                         <p class="card-text">{{post.summary}}</p>
                     {% endif %}
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="{% url 'blog:post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}

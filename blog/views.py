@@ -48,3 +48,12 @@ class CategoryPostList(generic.ListView):
     def get_queryset(self):
         category = get_object_or_404(Category, slug=self.kwargs['slug'])
         return Post.objects.filter(category__in=category.get_self_and_children_ids())
+
+
+class TagPostList(generic.ListView):
+    paginate_by = 5
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug__in=[self.kwargs['slug']])

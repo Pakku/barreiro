@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from filer.fields.image import FilerImageField
+from taggit.managers import TaggableManager
 
 STATUS = (
     (0, "Draft"),
@@ -19,6 +20,7 @@ class Post(models.Model):
     image = FilerImageField(related_name='blog_images', null=True, on_delete=models.SET_NULL, blank=True)
     summary = models.CharField(max_length=500, null=True, blank=True)
     category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL, blank=True, related_name='blog_posts')
+    tags = TaggableManager()
 
     class Meta:
         ordering = ['-created_at']
@@ -29,7 +31,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
 
-        return reverse("post_detail", kwargs={"slug": str(self.slug)})
+        return reverse("blog:post_detail", kwargs={"slug": str(self.slug)})
 
 
 class Comment(models.Model):
@@ -61,7 +63,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
 
-        return reverse('category', kwargs={"slug": str(self.slug)})
+        return reverse('blog:category', kwargs={"slug": str(self.slug)})
 
     def get_self_and_children_ids(self):
         ids = [self.id]

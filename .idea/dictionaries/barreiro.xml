@@ -5,6 +5,7 @@
       <w>mptt</w>
       <w>sameorigin</w>
       <w>summernote</w>
+      <w>taggit</w>
     </words>
   </dictionary>
 </component>

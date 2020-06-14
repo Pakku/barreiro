@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'filer',
     'mptt',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -139,4 +140,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 THUMBNAIL_HIGH_RESOLUTION = True
 
 FILER_CANONICAL_URL = 'c/'
+
+TAGGIT_CASE_INSENSITIVE = True
 
