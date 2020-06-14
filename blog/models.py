@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from filer.fields.image import FilerImageField
 
 STATUS = (
     (0, "Draft"),
@@ -15,6 +16,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     content = models.TextField()
+    image = FilerImageField(related_name='blog_images', null=True, on_delete=models.SET_NULL)
+    summary = models.CharField(max_length=500, null=True)
 
     class Meta:
         ordering = ['-created_at']
@@ -25,7 +28,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
 
-        return reverse("post_detail",kwargs={"slug":str(self.slug)})
+        return reverse("post_detail", kwargs={"slug": str(self.slug)})
 
 
 class Comment(models.Model):

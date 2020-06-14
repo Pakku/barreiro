@@ -2,6 +2,7 @@
   <dictionary name="barreiro">
     <words>
       <w>changefreq</w>
+      <w>mptt</w>
       <w>sameorigin</w>
       <w>summernote</w>
     </words>

@@ -36,10 +36,15 @@
         <div class="col-md-8 mt-3 left">
             {% for post in post_list %}
             <div class="card mb-4">
+                {% if post.image %}
+                    <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}">
+                {% endif %}
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|truncatewords_html:"40"|safe }}</p>
+                    <p class="card-text text-muted h6">{{ post.created_at}} </p>
+                    {% if post.summary %}
+                        <p class="card-text">{{post.summary}}</p>
+                    {% endif %}
                     <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>
