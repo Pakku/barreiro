@@ -32,5 +32,8 @@
     "lodash": "^4.17.4",
     "vue": "^2.4.1",
     "webpack-manifest-plugin": "^1.1.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0"
   }
 }
