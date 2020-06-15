@@ -1,5 +1,28 @@
 {% extends "blog/base.html" %}
 {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col col-12">
+          <section class="author">
+            <div class="author-inner">
+              <div class="author-content">
+
+                <div class="author-avatar">
+                  <img src="/static/blog/images/barreiro.png" alt="Carlos Barreiro" class="author-avatar__img">
+                </div>
+
+
+                <h1 class="author__name">Carlos Barreiro García</h1>
+
+
+                <p class="author__desc">Bienvenido a mi blog.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
     <div class="post-list">
         {% for post in post_list %}
             <div class="post">

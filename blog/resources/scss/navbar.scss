@@ -1,0 +1,13 @@
+.navbar {
+    transition: top 0.5s ease;
+  height: 7rem;
+
+  .navbar-brand {
+    font-size: 1.7rem;
+  }
+}
+
+.navbar-hide {
+    top: -7rem;
+}
+

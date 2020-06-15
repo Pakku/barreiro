@@ -1,3 +1,5 @@
+var $ = window.$ = window.jQuery = require('jquery');
+
 function resizeGridItem(item) {
     let grid = document.getElementsByClassName("post-list")[0];
     let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -25,3 +27,10 @@ allItems = document.getElementsByClassName("post");
 for (let x=0;x<allItems.length;x++) {
     imagesLoaded(allItems[x], resizeInstance);
 }
+
+$(window).scroll(function(e) {
+
+    // add/remove class to navbar when scrolling to hide/show
+    $('.navbar')[$(window).scrollTop() >= 150 ? 'addClass' : 'removeClass']('navbar-hide');
+
+});

@@ -10809,6 +10809,20 @@ html {
   font-size: 62.5%;
 }
 
+.navbar {
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+  height: 7rem;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.7rem;
+}
+
+.navbar-hide {
+  top: -7rem;
+}
+
 body {
   margin: 0 1.5rem 1.5rem;
   background-color: #7f355a;
@@ -10835,6 +10849,51 @@ body .container-wrapper {
 
 img {
   max-width: 100%;
+}
+
+.author {
+  color: #FFF;
+  margin: 15rem 0 6rem;
+}
+
+.author .author-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.author .author-inner .author-content {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.author .author-inner .author-content .author-avatar {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  background-color: #e6e6e6;
+}
+
+.author .author-inner .author-content .author-avatar .author-avatar__img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.author .author-inner .author-content .author__desc {
+  font-size: 1.6rem;
+  font-weight: 200;
 }
 
 .post-list {
