@@ -1,1 +1,35 @@
-html { font-size: 62.5%; }
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 1.5rem 1.5rem;
+  color: #FFF;
+  background-color: hotpink;
+  font-size: 1.3rem;
+  background-image: url("/static/blog/images/point.png");
+
+  @include media-breakpoint-up(md) {
+    margin: 0 3rem 3rem;
+  }
+
+  .container-wrapper {
+    background-color: #333;
+    padding: 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      padding: 3rem;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.container.first {
+  margin: 10rem 0 6rem;
+  @include media-breakpoint-up(lg) {
+    margin: 10rem 0 6rem;
+  }
+}

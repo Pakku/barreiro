@@ -68,14 +68,14 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $ = window.$ = window.jQuery = __webpack_require__(7);
+var $ = window.$ = window.jQuery = __webpack_require__(2);
 
 function resizeGridItem(item) {
     var grid = document.getElementsByClassName("post-list")[0];
@@ -113,16 +113,6 @@ $(window).scroll(function (e) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10999,6 +10989,12 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

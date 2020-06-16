@@ -10809,23 +10809,10 @@ html {
   font-size: 62.5%;
 }
 
-.navbar {
-  -webkit-transition: top 0.5s ease;
-  transition: top 0.5s ease;
-  height: 7rem;
-}
-
-.navbar .navbar-brand {
-  font-size: 1.7rem;
-}
-
-.navbar-hide {
-  top: -7rem;
-}
-
 body {
   margin: 0 1.5rem 1.5rem;
-  background-color: #7f355a;
+  color: #FFF;
+  background-color: hotpink;
   font-size: 1.3rem;
   background-image: url("/static/blog/images/point.png");
 }
@@ -10851,9 +10838,32 @@ img {
   max-width: 100%;
 }
 
+.container.first {
+  margin: 10rem 0 6rem;
+}
+
+@media (min-width: 992px) {
+  .container.first {
+    margin: 10rem 0 6rem;
+  }
+}
+
+.navbar {
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+  height: 7rem;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.7rem;
+}
+
+.navbar-hide {
+  top: -7rem;
+}
+
 .author {
   color: #FFF;
-  margin: 15rem 0 6rem;
 }
 
 .author .author-inner {
@@ -10896,6 +10906,10 @@ img {
   font-weight: 200;
 }
 
+.group .group-title {
+  text-align: center;
+}
+
 .post-list {
   display: grid;
   grid-gap: 10px;
@@ -10909,6 +10923,15 @@ img {
 
 .post-list .post .content {
   display: block;
+}
+
+.post-list .post .content .image {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.post-list .post .content .image:hover {
+  opacity: 0.5;
 }
 
 .post-list .post .content .text-content {
@@ -10935,6 +10958,6 @@ img {
 }
 
 .post-list .post .content:hover .title {
-  -webkit-box-shadow: 0 -1px 0 0 #333 inset,0 -3px 0 0 #7f355a inset;
-          box-shadow: 0 -1px 0 0 #333 inset,0 -3px 0 0 #7f355a inset;
+  -webkit-box-shadow: 0 -1px 0 0 #333 inset, 0 -3px 0 0 hotpink inset;
+          box-shadow: 0 -1px 0 0 #333 inset, 0 -3px 0 0 hotpink inset;
 }

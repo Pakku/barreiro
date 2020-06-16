@@ -1,0 +1,52 @@
+.post-list {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-auto-rows: 20px;
+
+  .post {
+    background-color: #333;
+
+    .content {
+      display: block;
+
+      .image {
+        transition: opacity 0.5s ease;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      .text-content {
+        padding-top: 1.5rem;
+
+        .badge {
+          margin-bottom: 5px;
+          font-size: 1.2rem;
+        }
+
+        .title {
+          &:hover {
+            text-decoration: none;
+            color: $blue;
+          }
+        }
+
+        .summary {
+          color: #FFF;
+        }
+
+        .date {
+          color: $gray-500;
+          margin-top: 0.5rem;
+        }
+      }
+
+      &:hover {
+        .title {
+          box-shadow: 0 -1px 0 0 #333 inset, 0 -3px 0 0 hotpink inset;
+        }
+      }
+    }
+  }
+}

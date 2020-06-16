@@ -1,0 +1,42 @@
+.author {
+    color: #FFF;
+
+    .author-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .author-content {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+
+            .author-avatar {
+                display: block;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin: 0 auto 10px;
+                overflow: hidden;
+                background-color: #e6e6e6;
+
+                .author-avatar__img {
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                }
+            }
+
+            .author__desc {
+                font-size: 1.6rem;
+                font-weight: 200;
+            }
+        }
+    }
+}
+
+.group {
+    .group-title {
+        text-align:center;
+    }
+}
