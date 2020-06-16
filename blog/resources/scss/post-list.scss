@@ -3,6 +3,10 @@
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-auto-rows: 20px;
+  padding: 0 1.5rem;
+  @include media-breakpoint-up(md) {
+    padding: 0 3rem;
+  }
 
   .post {
     background-color: #333;

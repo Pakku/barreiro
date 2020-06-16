@@ -1,0 +1,106 @@
+.post-detail {
+  .title {
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: 'Roboto Slab', serif;
+    @include media-breakpoint-up(md) {
+      font-size: 4rem;
+    }
+  }
+
+  .summary {
+    font-size: 1.8rem;
+    color: $gray-500;
+    margin-top: 1.8rem;
+    line-height: 100%;
+    @include media-breakpoint-up(md) {
+      font-size: 2.4rem;
+    }
+  }
+
+  .meta-info {
+    display: flex;
+    margin-top: 3rem;
+
+    .author-avatar {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #e6e6e6;
+
+      .author-avatar__img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+      }
+    }
+
+    .text-meta-info {
+      margin-left: 1.2rem;
+      font-size: 1.6rem;
+
+      .date {
+        color: $gray-500;
+      }
+    }
+  }
+
+  .content {
+    font-size: 1.8rem;
+    line-height: 130%;
+    font-weight: 200;
+    margin-bottom: 3rem;
+    @include media-breakpoint-up(md) {
+      font-size: 2.1rem;
+    }
+
+    p, h1, h2, h3, h4, h5, img {
+
+      &:not(:first-child) {
+        margin-top: 2.8rem;
+        @include media-breakpoint-up(md) {
+          margin-top: 4rem;
+        }
+      }
+
+    }
+
+    img {
+      display:block;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      @include media-breakpoint-up(md) {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .badges {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    .badge {
+      font-weight: 400;
+      margin-right: 1rem;
+    }
+  }
+
+  .comments {
+    .comment {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .form-comment {
+    margin-top: 2rem;
+
+    .form-title {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

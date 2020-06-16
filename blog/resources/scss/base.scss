@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html {
   font-size: 62.5%;
 }
 
 body {
   margin: 0 1.5rem 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   color: #FFF;
   background-color: hotpink;
   font-size: 1.3rem;
@@ -15,10 +19,10 @@ body {
 
   .container-wrapper {
     background-color: #333;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
 
     @include media-breakpoint-up(md) {
-      padding: 3rem;
+      padding: 3rem 0;
     }
   }
 }
@@ -28,8 +32,8 @@ img {
 }
 
 .container.first {
-  margin: 10rem 0 6rem;
+  margin: 10rem auto 6rem;
   @include media-breakpoint-up(lg) {
-    margin: 10rem 0 6rem;
+    margin: 10rem auto 6rem;
   }
 }
