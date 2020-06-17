@@ -1,4 +1,56 @@
-{% extends 'blog/base.html' %} {% block content %}
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+{% block metas %}
+    <!-- Primary Meta Tags -->
+    <title>{{ post.title }} - Barrei.ro</title>
+    <meta name="title" content="{{ post.title }} - Barrei.ro">
+    <meta name="description" content="{{ post.summary }}">
+    <link rel="canonical" href="{% settings_value "HOSTNAME" %}{{ post.get_absolute_url }}"/>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{% settings_value "HOSTNAME" %}{{ post.get_absolute_url }}">
+    <meta property="og:title" content="{{ post.title }} - Barrei.ro">
+    <meta property="og:description" content="{{ post.summary }}">
+    {% if post.image %}
+        <meta property="og:image" content="{% settings_value "HOSTNAME" %}{{ post.image.url }}">
+    {% endif %}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{% settings_value "HOSTNAME" %}{{ post.get_absolute_url }}">
+    <meta property="twitter:title" content="{{ post.title }} - Barrei.ro">
+    <meta property="twitter:description" content="{{ post.summary }}">
+    {% if post.image %}
+        <meta property="twitter:image" content="{% settings_value "HOSTNAME" %}{{ post.image.url }}">
+    {% endif %}
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{% settings_value "HOSTNAME" %}{{ post.get_absolute_url }}"
+          },
+          "headline": "{{ post.title }}",
+          "description": "{{ post.summary }}",
+          "image": "{% settings_value "HOSTNAME" %}{{ post.image.url }}",
+          "author": {
+            "@type": "Person",
+            "name": "Carlos Barreiro García"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Barrei.ro"
+          },
+          "datePublished": "{{ post.created_at |date:'Y-m-d' }}",
+          "dateModified": "{{ post.updated_at |date:'Y-m-d' }}"
+        }
+    </script>
+{% endblock metas %}
+
+{% block content %}
     {% load crispy_forms_tags %}
     <div class="post-detail">
         <div class="container first">

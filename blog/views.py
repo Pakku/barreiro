@@ -3,6 +3,8 @@ from nis import cat
 from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
+from django.conf import settings
+from django.urls import reverse
 
 from blog.forms import CommentForm
 from blog.models import Post, Category
@@ -13,6 +15,16 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_at')
     template_name = 'blog/index.html'
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data(**kwargs)
+        title = "Barrei.ro - El blog de Carlos Barreiro García"
+        description = 'Artículos de opinión de Carlos Barreiro García'
+        url = getattr(settings, 'HOSTNAME', "")
+        context['title'] = title
+        context['description'] = description
+        context['url'] = url
+        return context
 
 
 def post_detail(request, slug):
@@ -53,8 +65,14 @@ class CategoryPostList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoryPostList, self).get_context_data(**kwargs)
         category = get_object_or_404(Category, slug=self.kwargs['slug'])
+        title = category.name + " - Barrei.ro"
+        description = 'Entradas del blog sobre el tema de ' + category.name
+        url = getattr(settings, 'HOSTNAME', "") + reverse("blog:category", kwargs={"slug": str(category.slug)})
         context['list_mode'] = 'category'
         context['category'] = category
+        context['title'] = title
+        context['description'] = description
+        context['url'] = url
         return context
 
 
@@ -69,6 +87,12 @@ class TagPostList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(TagPostList, self).get_context_data(**kwargs)
         tag = get_object_or_404(Tag, slug=self.kwargs['slug'])
+        title = "Etiqueta " + tag.name + " - Barrei.ro"
+        description = 'Entradas del blog relativas a ' + tag.name
+        url = getattr(settings, 'HOSTNAME', "") + reverse("blog:tag", kwargs={"slug": str(tag.slug)})
         context['list_mode'] = 'tag'
         context['tag'] = tag
+        context['title'] = title
+        context['description'] = description
+        context['url'] = url
         return context
