@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fty$wos20mv_ndmun^8mr_0dptn^8n$a^d8t!_onj_bnh014gu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 # Application definition
 
@@ -127,6 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = config('STATIC_ROOT')
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Base url to serve media files
@@ -144,3 +146,5 @@ FILER_CANONICAL_URL = 'c/'
 TAGGIT_CASE_INSENSITIVE = True
 
 HOSTNAME = config('HOSTNAME')
+
+ANALYTICS = config('ANALYTICS')
