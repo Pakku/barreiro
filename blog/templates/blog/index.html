@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 
+{% load thumbnail %}
+
 {% block metas %}
     <!-- Primary Meta Tags -->
     <title>{{ title }}</title>
@@ -61,7 +63,7 @@
                 <div class="content">
                     {% if post.image %}
                         <a href="{% url 'blog:post_detail' post.slug %}" class="image-wrapper">
-                            <img class="image" src="{{ post.image.url }}" alt="{{ post.title }}"/>
+                            <img class="image" src="{% thumbnail post.image 450x0 crop %}" alt="{{ post.title }}"/>
                         </a>
                     {% endif %}
 
